@@ -8,7 +8,7 @@ public class rocketMovement : MonoBehaviour
     public float speed = 5;
     //public float timer = 0;
     private Rigidbody2D rb;
-     
+    private distanceCounter d;
     private Vector2 screenBounds;
     private static int health;
     public float timer = 0;
@@ -39,7 +39,7 @@ public class rocketMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        health = playerHealth.health;
+        //health = playerHealth.health;
         if(other.tag == "playerPlane") {
             //GameObject e = Instantiate() as GameObject;
             //e.transform.position = transform.position;
@@ -51,6 +51,9 @@ public class rocketMovement : MonoBehaviour
             GameObject e = Instantiate(myPrefab) as GameObject;
             e.transform.position = transform.position;
             Destroy(e, .35f);
+            //distanceCounter.distance += 100;
+            
+            
             //Debug.Log(health);
         }
     }

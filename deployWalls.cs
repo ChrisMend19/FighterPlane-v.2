@@ -27,7 +27,6 @@ public class deployWalls : MonoBehaviour
         while (true) {
             yield return new WaitForSeconds(respawnTime);
             spawnEnemy();
-            //Debug.Log(screenBounds);
         }
     }
 }

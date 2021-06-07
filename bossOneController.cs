@@ -11,22 +11,21 @@ public class bossOneController : MonoBehaviour
     public int count;
     public bool bossHasSpawned = false;
     private joystickShoot playerControls; 
+    private bool crash;
+
     void Start()
     {
-        //Debug.Log("boss");
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height,Camera.main.transform.position.z));
-        
-        //Debug.Log(count);
-        //GameObject a = Instantiate(myPrefab) as GameObject;
-        //a.transform.position = new Vector2(screenBounds.x + 5, Random.Range(-screenBounds.y + 5 , screenBounds.y - 1.75f));
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height,Camera.main.transform.position.z));  
     }
     void Update() {
-        count = distanceCounter.distance;
-        if (count == 650 && !bossHasSpawned) { //650
-            spawnBoss();
-            bossHasSpawned = true;
+        // removes boss spawn
+        // crash = GameObject.Find("Plane").GetComponent<playerHealth>().crashPlaneBegin;
+        // count = distanceCounter.distance;
+        // if (count == 1000 && !bossHasSpawned && !crash) { //650
+        //     spawnBoss();
+        //     bossHasSpawned = true;
 
-        }
+        // }
     }
 
     // Update is called once per frame

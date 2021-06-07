@@ -10,6 +10,7 @@ public class pufferfishEffect : MonoBehaviour
     private static int health;
     private planeEnemyBomb explosionPlane;
     public GameObject myPrefab;
+  
     
 
     
@@ -23,7 +24,7 @@ public class pufferfishEffect : MonoBehaviour
             GameObject e = Instantiate(myPrefab) as GameObject;
             e.transform.position = transform.position;
             Destroy(e, .35f);
-            //Debug.Log("hiut");
+            
         }
         
     }

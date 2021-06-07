@@ -8,6 +8,7 @@ public class cloudMover : MonoBehaviour
     public int speed = 5;
     private Rigidbody2D rigidBody;
     private Vector2 screenBounds;
+    public SpriteRenderer background;
     private float xpos;
     void Start()
     {
@@ -16,13 +17,16 @@ public class cloudMover : MonoBehaviour
         rigidBody.velocity = new Vector2(-speed,0);
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height,Camera.main.transform.position.z));
         xpos = rigidBody.position.x;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < -screenBounds.x * 6.4f) {
-            rigidBody.transform.position = new Vector2(screenBounds.x - 14.5f,3.45f);
+        //Debug.Log("T: "+transform.position.x);
+        //Debug.Log("B: "+-background.bounds.size.x);
+        if (transform.position.x < -background.bounds.size.x*1.25f) {
+            rigidBody.transform.position = new Vector2(background.bounds.size.x - 37f,3.45f);
             //Debug.Log(screenBounds.x);
         }
     }

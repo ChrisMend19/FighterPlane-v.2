@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deployPuffer : MonoBehaviour
+public class deployPurples : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject myPrefab;
-    public float respawnTime = 0.8f;
+    public float respawnTime = 2.5f;
     private Vector2 screenBounds;
     private distanceCounter counter;
     private int count;
@@ -16,25 +16,26 @@ public class deployPuffer : MonoBehaviour
     private playerHealth ph;
     private bool crash;
     public SpriteRenderer background;
-
-
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height,Camera.main.transform.position.z));
         StartCoroutine(rocketWave());
+        
     }
-    void Update() {
+
+    // Update is called once per frame
+    void Update()
+    {
         crash = GameObject.Find("Plane").GetComponent<playerHealth>().crashPlaneBegin;
-        if(respawnTime > 0.25){
+        if(respawnTime > 1){
             respawnTime -= 0.0001f;
         }
-        //turnOffEnemies(); // removes the turning off of enemies for bosses
     }
 
     private void spawnEnemy() {
         if(!crash){
             GameObject a = Instantiate(myPrefab) as GameObject;
-            a.transform.position = new Vector2(background.bounds.size.x - 15, Random.Range((float)background.bounds.size.y * -0.22f , (float)background.bounds.size.y * 0.5f)); //fix this bounds so bombs deploy over water
+            a.transform.position = new Vector2(background.bounds.size.x, Random.Range((float)background.bounds.size.y * -0.1f , (float)background.bounds.size.y * 0.3f)); //fix this bounds so bombs deploy over water
         }
     }
 

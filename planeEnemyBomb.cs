@@ -13,6 +13,7 @@ public class planeEnemyBomb : MonoBehaviour
     public float timer = 50f;
     private static int health;
     public GameObject myPrefab;
+    private distanceCounter distance;
 
     void Start()
     {
@@ -39,9 +40,12 @@ public class planeEnemyBomb : MonoBehaviour
         
         if(other.tag == "playerPlane") {
             Destroy(this.gameObject);
-            health = playerHealth.health;
-            health --;
+            //health = playerHealth.health;
+            //health --;
             explosionPlane();
+            //count = distance.distance;
+            //count += 250;
+
         }
         
     }

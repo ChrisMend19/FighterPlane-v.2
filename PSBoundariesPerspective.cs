@@ -7,6 +7,7 @@ public class PSBoundariesPerspective : MonoBehaviour {
     private Vector2 screenBounds;
     private float objectWidth;
     private float objectHeight;
+    public SpriteRenderer background;
 
     // Use this for initialization
     void Start(){
@@ -18,8 +19,8 @@ public class PSBoundariesPerspective : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate(){
         Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -4 + objectWidth, screenBounds.x - objectWidth);
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + (objectHeight * 2) + 1.1f, screenBounds.y - objectHeight);
+        viewPos.x = Mathf.Clamp(viewPos.x, (float)background.bounds.size.x * -0.8f + objectWidth, (float)background.bounds.size.x * 0.2f - objectWidth);
+        viewPos.y = Mathf.Clamp(viewPos.y, (float)background.bounds.size.y * -0.5f + (objectHeight * 2) + 1.1f, (float)background.bounds.size.y * 0.5f - objectHeight);
         transform.position = viewPos;
     }
 }
